@@ -1,1 +1,14 @@
-show.html.erb
+<h1>Show</h1>
+<h1> dose <%= @dose.id %> </h1>
+<h2>Title : <%= @dose.name %></h2>
+
+
+
+<%= link_to "Delete #{@dose.name}",
+            dose_path(@dose),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+
+
+<%= link_to 'Edit', edit_dose_path(@dose) %> |
+<%= link_to 'Back', doses_path %>

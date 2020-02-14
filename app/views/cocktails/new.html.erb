@@ -2,5 +2,8 @@
 
 <%= simple_form_for @cocktail do |f| %>
   <%= f.input :name %>
+  <% simple_form_for @cocktail.doses.ingredients.each do |dose| %>
+  <%= dose.input :name %>
   <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
 <% end %>

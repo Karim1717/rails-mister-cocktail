@@ -1,17 +1,22 @@
 <h1>Show</h1>
-<h1> cocktail <%= @cocktail.id %> </h1>
-<h2>Title : <%= @cocktail.name %></h2>
 
-<%= link_to 'Home page', cocktails_path %>
 
-<%= link_to "Delete #{@cocktail.name}",
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1> cocktail <%= @cocktail.id %> </h1>
+    <h2>Title : <%= @cocktail.name %></h2>
+    <% @cocktail.doses.each do |dose| %>
+    <h2>Ingredients : <%= dose.ingredient.name %></h2>
+    <h3> Description<%= dose.description %></h3>
+    <% end %>
+         <%= link_to "Delete #{@cocktail.name}",
             cocktail_path(@cocktail),
             method: :delete,
-            data: { confirm: "Are you sure?" } %>
+            data: { confirm: "Are you sure?" }, class: 'btn btn-flat' %>
+  </div>
+</div>
 
 
-<%= link_to "Update #{@cocktail.name}",
-            edit_cocktail_path(@cocktail.id) %>
 
 
 
